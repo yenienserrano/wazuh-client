@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { AgentsTable } from "../components/agents/AgentsTable";
 
 export const Agents = () => {
+  const [agents, setAgents] = useState([]);
+  const [offset] = useState(0);
+  const [limit] = useState(10);
+
+  useEffect(() => {
+    fetchData();
+  }, [offset, limit]);
+
+  const fetchData = async () => {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/agents`);
+    const data = await res.json();
+    setAgents(data.data);
+  };
+
   return (
-    <div>
-      <h1>Hola desde agents</h1>
+    <div className="p-5">
+      <h1 className="text-white">Agents</h1>
+      <table className="table table-dark table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">name</th>
+            <th scope="col">ip</th>
+            <th scope="col">Total alerts</th>
+          </tr>
+        </thead>
+        <tbody>
+          {agents.map((agent) => (
+            <AgentsTable key={agent._id} agent={agent} />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
