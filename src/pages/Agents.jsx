@@ -29,8 +29,8 @@ export const Agents = () => {
           </tr>
         </thead>
         <tbody>
-          {agents.map((agent) => (
-            <AgentsTable key={agent._id} agent={agent} />
+          {agents.map((agent, i) => (
+            <AgentsTable key={i} agent={agent} />
           ))}
         </tbody>
       </table>
