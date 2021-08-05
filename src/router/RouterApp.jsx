@@ -11,7 +11,7 @@ import { Home, Alerts, Agents, Agent, Rules, Rule } from "../pages";
 export const RouterApp = () => {
   return (
     <Router>
-      <div>
+      <div className="router-app__global">
         <Navbar />
 
         <Switch>
