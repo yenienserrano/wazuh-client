@@ -66,22 +66,18 @@ export const Alerts = () => {
       if (alerts.length !== 10) {
         const data = alerts;
         const newData = data.filter(function (item) {
-          const itemDataTitle = item._source.agent.name.toUpperCase();
-          const itemDataDescp = item._source.syscheck.event.toUpperCase();
-          const campo = itemDataTitle + " " + itemDataDescp;
+          const itemDataAgent = item._source.agent.name.toUpperCase();
           const textData = inputValue.toUpperCase();
-          return campo.indexOf(textData) > -1;
+          return itemDataAgent.indexOf(textData) > -1;
         });
         setAlerts(newData);
         setShowBtn(false);
       } else {
         const data = allAlerts;
         const newData = data.filter(function (item) {
-          const itemDataTitle = item._source.agent.name.toUpperCase();
-          const itemDataDescp = item._source.syscheck.event.toUpperCase();
-          const campo = itemDataTitle + " " + itemDataDescp;
+          const itemDataAgent = item._source.agent.name.toUpperCase();
           const textData = inputValue.toUpperCase();
-          return campo.indexOf(textData) > -1;
+          return itemDataAgent.indexOf(textData) > -1;
         });
         setAlerts(newData);
         setShowBtn(false);
