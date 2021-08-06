@@ -14,7 +14,7 @@ export const Agent = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  });
 
   const fetchData = async () => {
     const res = await fetch(`${process.env.REACT_APP_API_URL}/agents/${id}`);
@@ -86,7 +86,7 @@ export const Agent = () => {
                   ))}
               </tbody>
             </table>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center mb-5">
               {alerts && alerts.length > 10 ? (
                 showMore ? (
                   <button

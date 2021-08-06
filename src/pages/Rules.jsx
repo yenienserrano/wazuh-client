@@ -18,7 +18,7 @@ export const Rules = () => {
 
   return (
     <div className="p-5">
-      <h1 className="text-white">Alerts</h1>
+      <h1 className="text-white">Rules</h1>
       <table className="table table-dark table-striped table-hover">
         <thead>
           <tr>

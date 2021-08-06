@@ -5,16 +5,16 @@ import { AlertTable } from "../components/alerts/AlertTable";
 export const Alerts = () => {
   const [alerts, setAlerts] = useState([]);
   const [offset, setOffset] = useState(0);
-  const [limit, setLimit] = useState(10);
-  const [id, setId] = useState("");
+  const [limit] = useState(10);
+  const [id] = useState("");
   const [alert, setAlert] = useState(null);
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    fetchData();
+    fetchData(offset, limit, id);
   }, [offset, limit, id]);
 
-  const fetchData = async () => {
+  const fetchData = async (offset, limit, id) => {
     const res = await fetch(
       `${process.env.REACT_APP_API_URL}/alerts?offset=${offset}&limit=${limit}&id=${id}`
     );
