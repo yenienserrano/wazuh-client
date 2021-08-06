@@ -10,6 +10,7 @@ export const Alerts = () => {
   const [alert, setAlert] = useState(null);
   const [show, setShow] = useState(false);
   const [showBtn, setShowBtn] = useState(true);
+  const [filter, setFilter] = useState("withoutFilter");
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
@@ -18,7 +19,7 @@ export const Alerts = () => {
 
   useEffect(() => {
     fetchData(offset, limit);
-  }, [offset, limit, inputValue]);
+  }, [offset, limit]);
 
   const fetchData = async (offset, limit) => {
     const res = await fetch(
@@ -59,16 +60,53 @@ export const Alerts = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const data = allAlerts;
-    const newData = data.filter(function (item) {
-      const itemDataTitle = item._source.agent.name.toUpperCase();
-      const itemDataDescp = item._source.syscheck.event.toUpperCase();
-      const campo = itemDataTitle + " " + itemDataDescp;
-      const textData = inputValue.toUpperCase();
-      return campo.indexOf(textData) > -1;
-    });
-    setAlerts(newData);
-    setShowBtn(false);
+    if (inputValue.length === 0) {
+      handleFilter(filter);
+    } else {
+      if (alerts.length !== 10) {
+        const data = alerts;
+        const newData = data.filter(function (item) {
+          const itemDataTitle = item._source.agent.name.toUpperCase();
+          const itemDataDescp = item._source.syscheck.event.toUpperCase();
+          const campo = itemDataTitle + " " + itemDataDescp;
+          const textData = inputValue.toUpperCase();
+          return campo.indexOf(textData) > -1;
+        });
+        setAlerts(newData);
+        setShowBtn(false);
+      } else {
+        const data = allAlerts;
+        const newData = data.filter(function (item) {
+          const itemDataTitle = item._source.agent.name.toUpperCase();
+          const itemDataDescp = item._source.syscheck.event.toUpperCase();
+          const campo = itemDataTitle + " " + itemDataDescp;
+          const textData = inputValue.toUpperCase();
+          return campo.indexOf(textData) > -1;
+        });
+        setAlerts(newData);
+        setShowBtn(false);
+      }
+    }
+  };
+
+  const handleFilter = (e) => {
+    if (e === "withoutFilter") {
+      fetchData(offset, limit);
+      setFilter(e);
+    } else {
+      const data = allAlerts;
+      const newData = data.filter(function (item) {
+        const itemDataTitle = item._source.agent.name.toUpperCase();
+        const itemDataDescp = item._source.syscheck.event.toUpperCase();
+        const campo = itemDataTitle + " " + itemDataDescp;
+        const textData = e.toUpperCase();
+        return campo.indexOf(textData) > -1;
+      });
+      setAlerts(newData);
+      setShowBtn(false);
+      setFilter(e);
+      setInputValue("");
+    }
   };
 
   return (
@@ -76,11 +114,31 @@ export const Alerts = () => {
       <div className="p-5">
         <div className="d-flex justify-content-between">
           <h1 className="text-white">Alerts</h1>
+          <div className="d-flex">
+            <p className="text-white">Filter by agent:</p>
+            <select
+              className="form-select h-75"
+              aria-label="Default select example"
+              onChange={(e) => handleFilter(e.target.value)}
+            >
+              <option value="withoutFilter">Without filter</option>
+              <option value="Ubuntu">Ubuntu</option>
+              <option value="Debian">Debian</option>
+              <option value="ip-10-0-0-180.us-west-1.compute.internal">
+                ip-10-0-0-180.us-west-1.compute.internal
+              </option>
+              <option value="Amazon">Amazon</option>
+              <option value="RHEL7">RHEL7</option>
+              <option value="Centos">Centos</option>
+              <option value="Windows">Windows</option>
+            </select>
+          </div>
           <form className="input-group mb-3 w-25">
             <input
               type="text"
               className="form-control"
               placeholder="Search"
+              value={inputValue}
               aria-describedby="button-addon2"
               onChange={(e) => setInputValue(e.target.value)}
             />
@@ -91,7 +149,7 @@ export const Alerts = () => {
               onClick={onSubmit}
               onSubmit={(e) => onSubmit(e)}
             >
-              Button
+              Search
             </button>
           </form>
         </div>
