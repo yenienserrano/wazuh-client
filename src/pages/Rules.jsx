@@ -3,12 +3,10 @@ import { RulesTable } from "../components/rules/RulesTable";
 
 export const Rules = () => {
   const [rules, setRules] = useState([]);
-  const [offset] = useState(0);
-  const [limit] = useState(10);
 
   useEffect(() => {
     fetchData();
-  }, [offset, limit]);
+  }, []);
 
   const fetchData = async () => {
     const res = await fetch(`${process.env.REACT_APP_API_URL}/rules`);

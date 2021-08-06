@@ -14,7 +14,8 @@ export const Agent = () => {
 
   useEffect(() => {
     fetchData();
-  });
+    // eslint-disable-next-line
+  }, []);
 
   const fetchData = async () => {
     const res = await fetch(`${process.env.REACT_APP_API_URL}/agents/${id}`);

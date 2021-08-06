@@ -3,12 +3,10 @@ import { AgentsTable } from "../components/agents/AgentsTable";
 
 export const Agents = () => {
   const [agents, setAgents] = useState([]);
-  const [offset] = useState(0);
-  const [limit] = useState(10);
 
   useEffect(() => {
     fetchData();
-  }, [offset, limit]);
+  }, []);
 
   const fetchData = async () => {
     const res = await fetch(`${process.env.REACT_APP_API_URL}/agents`);

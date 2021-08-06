@@ -14,8 +14,8 @@ export const Rule = () => {
 
   useEffect(() => {
     fetchData();
-  });
-
+    // eslint-disable-next-line
+  }, []);
   const fetchData = async () => {
     const res = await fetch(`${process.env.REACT_APP_API_URL}/rules/${id}`);
     const data = await res.json();
@@ -36,17 +36,26 @@ export const Rule = () => {
             <h1 className="text-white mt-4 mb-4">Rule details</h1>
             <div className="card bg-dark text-white">
               <div className="card-header">
-                <b> Rule id:</b> {rule.id}
+                <b>Id:</b> {rule.id}
               </div>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item bg-dark text-white">
-                  <b> Id:</b> {rule.id}
+                  <b>Description:</b> {rule.description}
                 </li>
                 <li className="list-group-item bg-dark text-white">
                   <b> Level:</b> {rule.level}
                 </li>
                 <li className="list-group-item bg-dark text-white">
                   <b> Total alerts:</b> {rule.total_alerts}
+                </li>
+                <li className="list-group-item bg-dark text-white">
+                  <b>Gpg13:</b> {rule.gpg13}
+                </li>
+                <li className="list-group-item bg-dark text-white">
+                  <b>Gdpr:</b> {rule.gdpr}
+                </li>
+                <li className="list-group-item bg-dark text-white">
+                  <b>Firedtimes:</b> {rule.firedtimes}
                 </li>
               </ul>
             </div>
