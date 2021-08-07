@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test in <Rules /> should display the component correctly 1`] = `
+<div
+  className="p-5"
+>
+  <h1
+    className="text-white"
+  >
+    Rules
+  </h1>
+  <table
+    className="table table-dark table-striped table-hover"
+  >
+    <thead>
+      <tr>
+        <th
+          scope="col"
+        >
+          Id
+        </th>
+        <th
+          scope="col"
+        >
+          Level
+        </th>
+        <th
+          scope="col"
+        >
+          Description
+        </th>
+        <th
+          scope="col"
+        >
+          Total alerts
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;

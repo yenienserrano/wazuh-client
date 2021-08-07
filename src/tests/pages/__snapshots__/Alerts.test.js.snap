@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prueba en <Alerts /> Debe mostrar el componente correctamente 1`] = `
+<Fragment>
+  <div
+    className="p-5"
+  >
+    <div
+      className="d-flex justify-content-between"
+    >
+      <h1
+        className="text-white"
+      >
+        Alerts
+      </h1>
+      <div
+        className="d-flex"
+      >
+        <p
+          className="text-white"
+        >
+          Filter by agent:
+        </p>
+        <select
+          aria-label="Default select example"
+          className="form-select h-75"
+          onChange={[Function]}
+        >
+          <option
+            value="withoutFilter"
+          >
+            Without filter
+          </option>
+          <option
+            value="Ubuntu"
+          >
+            Ubuntu
+          </option>
+          <option
+            value="Debian"
+          >
+            Debian
+          </option>
+          <option
+            value="ip-10-0-0-180.us-west-1.compute.internal"
+          >
+            ip-10-0-0-180.us-west-1.compute.internal
+          </option>
+          <option
+            value="Amazon"
+          >
+            Amazon
+          </option>
+          <option
+            value="RHEL7"
+          >
+            RHEL7
+          </option>
+          <option
+            value="Centos"
+          >
+            Centos
+          </option>
+          <option
+            value="Windows"
+          >
+            Windows
+          </option>
+        </select>
+      </div>
+      <form
+        className="input-group mb-3 w-25"
+      >
+        <input
+          aria-describedby="button-addon2"
+          className="form-control"
+          onChange={[Function]}
+          placeholder="Search"
+          type="text"
+          value=""
+        />
+        <button
+          className="btn btn-outline-light"
+          id="button-addon2"
+          onClick={[Function]}
+          onSubmit={[Function]}
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+    <table
+      className="table table-dark table-striped table-hover"
+    >
+      <thead>
+        <tr>
+          <th
+            scope="col"
+          >
+            Id
+          </th>
+          <th
+            scope="col"
+          >
+            Agent
+          </th>
+          <th
+            scope="col"
+          >
+            Rule
+          </th>
+          <th
+            scope="col"
+          >
+            Event
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+    <div
+      className="w-100 d-flex justify-content-between"
+    >
+      <div
+        className="d-flex justify-content-start"
+      />
+      <div
+        className="d-flex justify-content-end"
+      >
+        <button
+          className="btn btn-outline-light"
+          onClick={[Function]}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`Test in <Alerts /> should display the component correctly 1`] = `
+<Fragment>
+  <div
+    className="p-5"
+  >
+    <div
+      className="d-flex justify-content-between"
+    >
+      <h1
+        className="text-white"
+      >
+        Alerts
+      </h1>
+      <div
+        className="d-flex"
+      >
+        <p
+          className="text-white"
+        >
+          Filter by agent:
+        </p>
+        <select
+          aria-label="Default select example"
+          className="form-select h-75"
+          onChange={[Function]}
+        >
+          <option
+            value="withoutFilter"
+          >
+            Without filter
+          </option>
+          <option
+            value="Ubuntu"
+          >
+            Ubuntu
+          </option>
+          <option
+            value="Debian"
+          >
+            Debian
+          </option>
+          <option
+            value="ip-10-0-0-180.us-west-1.compute.internal"
+          >
+            ip-10-0-0-180.us-west-1.compute.internal
+          </option>
+          <option
+            value="Amazon"
+          >
+            Amazon
+          </option>
+          <option
+            value="RHEL7"
+          >
+            RHEL7
+          </option>
+          <option
+            value="Centos"
+          >
+            Centos
+          </option>
+          <option
+            value="Windows"
+          >
+            Windows
+          </option>
+        </select>
+      </div>
+      <form
+        className="input-group mb-3 w-25"
+      >
+        <input
+          aria-describedby="button-addon2"
+          className="form-control"
+          onChange={[Function]}
+          placeholder="Search"
+          type="text"
+          value=""
+        />
+        <button
+          className="btn btn-outline-light"
+          id="button-addon2"
+          onClick={[Function]}
+          onSubmit={[Function]}
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+    <table
+      className="table table-dark table-striped table-hover"
+    >
+      <thead>
+        <tr>
+          <th
+            scope="col"
+          >
+            Id
+          </th>
+          <th
+            scope="col"
+          >
+            Agent
+          </th>
+          <th
+            scope="col"
+          >
+            Rule
+          </th>
+          <th
+            scope="col"
+          >
+            Event
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+    <div
+      className="w-100 d-flex justify-content-between"
+    >
+      <div
+        className="d-flex justify-content-start"
+      />
+      <div
+        className="d-flex justify-content-end"
+      >
+        <button
+          className="btn btn-outline-light"
+          onClick={[Function]}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;
