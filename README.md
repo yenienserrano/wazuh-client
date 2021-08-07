@@ -26,3 +26,4 @@ localhost:3000/agents
 localhost:3000/agents/:id
 localhost:3000/rules
 localhost:3000/rules/:id
+localhost:3000/dashboard
