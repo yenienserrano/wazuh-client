@@ -21,8 +21,8 @@ export const RouterApp = () => {
           <Route exact path="/rules" component={Rules} />
           <Route exact path="/rules/:id" component={Rule} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/" component={Home} />
-          <Redirect to="/" />
+          <Route exact path="/home" component={Home} />
+          <Redirect to="/home" />
         </Switch>
       </div>
     </Router>

@@ -5,6 +5,7 @@ import { AlertTable } from "../components/alerts/AlertTable";
 export const Alerts = () => {
   const [allAlerts, setAllAlerts] = useState(null);
   const [alerts, setAlerts] = useState([]);
+  const [dataFiltered, setdataFiltered] = useState(null);
   const [offset, setOffset] = useState(0);
   const [limit] = useState(10);
   const [alert, setAlert] = useState(null);
@@ -34,6 +35,7 @@ export const Alerts = () => {
     const res = await fetch(`${process.env.REACT_APP_API_URL}/alerts`);
     const data = await res.json();
     setAllAlerts(data.data);
+    setdataFiltered(data.data);
   };
 
   const prevPage = () => {
@@ -63,25 +65,16 @@ export const Alerts = () => {
     if (inputValue.length === 0) {
       handleFilter(filter);
     } else {
-      if (alerts.length !== 10) {
-        const data = alerts;
-        const newData = data.filter(function (item) {
-          const itemDataAgent = item._source.agent.name.toUpperCase();
-          const textData = inputValue.toUpperCase();
-          return itemDataAgent.indexOf(textData) > -1;
-        });
-        setAlerts(newData);
-        setShowBtn(false);
-      } else {
-        const data = allAlerts;
-        const newData = data.filter(function (item) {
-          const itemDataAgent = item._source.agent.name.toUpperCase();
-          const textData = inputValue.toUpperCase();
-          return itemDataAgent.indexOf(textData) > -1;
-        });
-        setAlerts(newData);
-        setShowBtn(false);
-      }
+      const data = dataFiltered;
+      const newData = data.filter((item) => {
+        const nameAgent = item._source.agent.name.toUpperCase();
+        const alertEvent = item._source.syscheck.event.toUpperCase();
+        const campo = nameAgent + " " + alertEvent;
+        const textData = inputValue.toUpperCase();
+        return campo.indexOf(textData) > -1;
+      });
+      setAlerts(newData);
+      setShowBtn(false);
     }
   };
 
@@ -89,19 +82,20 @@ export const Alerts = () => {
     if (e === "withoutFilter") {
       fetchData(offset, limit);
       setFilter(e);
+      setInputValue("");
+      setdataFiltered(allAlerts);
     } else {
       const data = allAlerts;
-      const newData = data.filter(function (item) {
-        const itemDataTitle = item._source.agent.name.toUpperCase();
-        const itemDataDescp = item._source.syscheck.event.toUpperCase();
-        const campo = itemDataTitle + " " + itemDataDescp;
+      const newData = data.filter((item) => {
+        const nameAgent = item._source.agent.name.toUpperCase();
         const textData = e.toUpperCase();
-        return campo.indexOf(textData) > -1;
+        return nameAgent.indexOf(textData) > -1;
       });
       setAlerts(newData);
       setShowBtn(false);
       setFilter(e);
       setInputValue("");
+      setdataFiltered(newData);
     }
   };
 
@@ -113,11 +107,11 @@ export const Alerts = () => {
           <div className="d-flex">
             <p className="text-white">Filter by agent:</p>
             <select
-              className="form-select h-75"
+              className="form-select h-75 w-50 me-3"
               aria-label="Default select example"
               onChange={(e) => handleFilter(e.target.value)}
             >
-              <option value="withoutFilter">Without filter</option>
+              <option value="withoutFilter">All</option>
               <option value="Ubuntu">Ubuntu</option>
               <option value="Debian">Debian</option>
               <option value="ip-10-0-0-180.us-west-1.compute.internal">
@@ -128,28 +122,28 @@ export const Alerts = () => {
               <option value="Centos">Centos</option>
               <option value="Windows">Windows</option>
             </select>
+            <form className="input-group mb-3 w-50">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search"
+                value={inputValue}
+                aria-describedby="button-addon2"
+                onChange={(e) => setInputValue(e.target.value)}
+              />
+              <button
+                className="btn btn-primary-page"
+                type="submit"
+                id="button-addon2"
+                onClick={onSubmit}
+                onSubmit={(e) => onSubmit(e)}
+              >
+                Search
+              </button>
+            </form>
           </div>
-          <form className="input-group mb-3 w-25">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search"
-              value={inputValue}
-              aria-describedby="button-addon2"
-              onChange={(e) => setInputValue(e.target.value)}
-            />
-            <button
-              className="btn btn-outline-light"
-              type="submit"
-              id="button-addon2"
-              onClick={onSubmit}
-              onSubmit={(e) => onSubmit(e)}
-            >
-              Search
-            </button>
-          </form>
         </div>
-        <table className="table table-dark table-striped table-hover">
+        <table className="table table-light table-striped table-hover">
           <thead>
             <tr>
               <th scope="col">Id</th>
@@ -172,14 +166,14 @@ export const Alerts = () => {
           <div className="w-100 d-flex justify-content-between">
             <div className="d-flex justify-content-start">
               {+offset <= 0 ? null : (
-                <button className="btn btn-outline-light" onClick={prevPage}>
+                <button className="btn btn-primary-page" onClick={prevPage}>
                   Prev
                 </button>
               )}
             </div>
             <div className="d-flex justify-content-end">
               {+offset >= 90 ? null : (
-                <button className="btn btn-outline-light" onClick={nextPage}>
+                <button className="btn btn-primary-page" onClick={nextPage}>
                   Next
                 </button>
               )}

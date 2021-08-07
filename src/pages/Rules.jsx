@@ -17,7 +17,7 @@ export const Rules = () => {
   return (
     <div className="p-5">
       <h1 className="text-white">Rules</h1>
-      <table className="table table-dark table-striped table-hover">
+      <table className="table table-light table-striped table-hover">
         <thead>
           <tr>
             <th scope="col">Id</th>

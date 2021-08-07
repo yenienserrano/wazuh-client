@@ -5,7 +5,10 @@ export const AgentsTable = ({ agent }) => {
   const history = useHistory();
 
   return (
-    <tr className="pointer" onClick={() => history.push(`/agents/${agent.id}`)}>
+    <tr
+      className="pointer animate__animated animate__fadeIn"
+      onClick={() => history.push(`/agents/${agent.id}`)}
+    >
       <td>{agent.id}</td>
       <td>{agent.name}</td>
       <td>{agent.ip}</td>

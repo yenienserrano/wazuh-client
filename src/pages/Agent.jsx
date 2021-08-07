@@ -36,20 +36,13 @@ export const Agent = () => {
         <div className="row">
           <div className="col-md-4">
             <h1 className="text-white mt-4 mb-4">Agent details</h1>
-            <div className="card bg-dark text-white">
-              <div className="card-header">
-                {" "}
-                <b> Agente:</b> {agent.name}
-              </div>
+            <div className="card bg-light  animate__animated animate__fadeIn">
+              <div className="card-header"> Agente: {agent.name}</div>
               <ul className="list-group list-group-flush">
-                <li className="list-group-item bg-dark text-white">
-                  <b> Id:</b> {agent.id}
-                </li>
-                <li className="list-group-item bg-dark text-white">
-                  <b> Ip:</b> {agent.ip}
-                </li>
-                <li className="list-group-item bg-dark text-white">
-                  <b> Total alerts:</b> {agent.total_alerts}
+                <li className="list-group-item bg-light">Id: {agent.id}</li>
+                <li className="list-group-item bg-light">Ip: {agent.ip}</li>
+                <li className="list-group-item bg-light">
+                  Total alerts: {agent.total_alerts}
                 </li>
               </ul>
             </div>
@@ -57,7 +50,7 @@ export const Agent = () => {
           <div className="col-md-8">
             <h1 className="text-white mt-4 mb-4">Agent alerts</h1>
 
-            <table className="table table-dark table-striped table-hover">
+            <table className="table table-light table-striped table-hover">
               <thead>
                 <tr>
                   <th scope="col">Id</th>
@@ -91,14 +84,14 @@ export const Agent = () => {
               {alerts && alerts.length > 10 ? (
                 showMore ? (
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-primary-page"
                     onClick={() => setShowMore(false)}
                   >
                     See less
                   </button>
                 ) : (
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-primary-page"
                     onClick={() => setShowMore(true)}
                   >
                     See all

@@ -1,37 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Prueba en <Home /> Debe mostrar el componente correctamente 1`] = `
-<div
-  className="d-flex h-75 justify-content-center align-items-center"
->
-  <h1
-    className="text-white"
-  >
-    Wazuh Client Home
-  </h1>
-</div>
-`;
-
-exports[`Prueba en Home Debe mostrar el componente correctamente 1`] = `
-<div
-  className="d-flex h-75 justify-content-center align-items-center"
->
-  <h1
-    className="text-white"
-  >
-    Wazuh Client Home
-  </h1>
-</div>
-`;
-
 exports[`Test in <Home /> should display the component correctly 1`] = `
 <div
-  className="d-flex h-75 justify-content-center align-items-center"
+  className="d-flex justify-content-center align-items-center container-home"
 >
   <h1
     className="text-white"
   >
-    Wazuh Client Home
+    Welcome Wazuh Client
   </h1>
 </div>
 `;

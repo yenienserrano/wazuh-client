@@ -34,27 +34,27 @@ export const Rule = () => {
         <div className="row">
           <div className="col-md-4">
             <h1 className="text-white mt-4 mb-4">Rule details</h1>
-            <div className="card bg-dark text-white">
+            <div className="card bg-light  animate__animated animate__fadeIn">
               <div className="card-header">
                 <b>Id:</b> {rule.id}
               </div>
               <ul className="list-group list-group-flush">
-                <li className="list-group-item bg-dark text-white">
+                <li className="list-group-item bg-light">
                   <b>Description:</b> {rule.description}
                 </li>
-                <li className="list-group-item bg-dark text-white">
+                <li className="list-group-item bg-light">
                   <b> Level:</b> {rule.level}
                 </li>
-                <li className="list-group-item bg-dark text-white">
+                <li className="list-group-item bg-light">
                   <b> Total alerts:</b> {rule.total_alerts}
                 </li>
-                <li className="list-group-item bg-dark text-white">
+                <li className="list-group-item bg-light">
                   <b>Gpg13:</b> {rule.gpg13}
                 </li>
-                <li className="list-group-item bg-dark text-white">
+                <li className="list-group-item bg-light">
                   <b>Gdpr:</b> {rule.gdpr}
                 </li>
-                <li className="list-group-item bg-dark text-white">
+                <li className="list-group-item bg-light">
                   <b>Firedtimes:</b> {rule.firedtimes}
                 </li>
               </ul>
@@ -63,7 +63,7 @@ export const Rule = () => {
           <div className="col-md-8">
             <h1 className="text-white mt-4 mb-4">Agent alerts</h1>
 
-            <table className="table table-dark table-striped table-hover">
+            <table className="table bg-light table-striped table-hover">
               <thead>
                 <tr>
                   <th scope="col">Id</th>
@@ -97,14 +97,14 @@ export const Rule = () => {
               {alerts && alerts.length > 10 ? (
                 showMore ? (
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-primary-page"
                     onClick={() => setShowMore(false)}
                   >
                     See less
                   </button>
                 ) : (
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-primary-page"
                     onClick={() => setShowMore(true)}
                   >
                     See all

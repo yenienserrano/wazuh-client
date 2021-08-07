@@ -3,7 +3,7 @@ import "./alertDetail.css";
 
 export const AlertDetail = ({ setShow, alert }) => {
   return (
-    <div className="containerCss text-white bg-dark d-flex flex-column align-items-center justify-content-center">
+    <div className="containerCss text-white d-flex flex-column align-items-center justify-content-center animate__animated animate__bounceInRight">
       <div>
         <h1>Alert detail</h1>
         <div>
@@ -55,10 +55,7 @@ export const AlertDetail = ({ setShow, alert }) => {
         </div>
       </div>
       <div>
-        <button
-          className="btn btn-outline-light"
-          onClick={() => setShow(false)}
-        >
+        <button className="btn btn-primary-page" onClick={() => setShow(false)}>
           Cerrar
         </button>
       </div>
