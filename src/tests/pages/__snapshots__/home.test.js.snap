@@ -2,7 +2,7 @@
 
 exports[`Test in <Home /> should display the component correctly 1`] = `
 <div
-  className="d-flex justify-content-center align-items-center container-home"
+  className="d-flex justify-content-center align-items-center container-home animate__animated animate__fadeInDownBig"
 >
   <h1
     className="text-white"

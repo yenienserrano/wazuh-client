@@ -2,7 +2,7 @@
 
 exports[`Test in <AlertDetail /> should display the component correctly 1`] = `
 <div
-  className="containerCss text-white bg-dark d-flex flex-column align-items-center justify-content-center"
+  className="containerCss text-white d-flex flex-column align-items-center justify-content-center animate__animated animate__bounceInRight"
 >
   <div>
     <h1>
@@ -112,7 +112,7 @@ exports[`Test in <AlertDetail /> should display the component correctly 1`] = `
   </div>
   <div>
     <button
-      className="btn btn-outline-light"
+      className="btn btn-primary-page"
       onClick={[Function]}
     >
       Cerrar

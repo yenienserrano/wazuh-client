@@ -10,7 +10,7 @@ exports[`Test in <Rules /> should display the component correctly 1`] = `
     Rules
   </h1>
   <table
-    className="table table-dark table-striped table-hover"
+    className="table table-light table-striped table-hover"
   >
     <thead>
       <tr>

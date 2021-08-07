@@ -23,13 +23,13 @@ exports[`Test in <Alerts /> should display the component correctly 1`] = `
         </p>
         <select
           aria-label="Default select example"
-          className="form-select h-75"
+          className="form-select h-75 w-50 me-3"
           onChange={[Function]}
         >
           <option
             value="withoutFilter"
           >
-            Without filter
+            All
           </option>
           <option
             value="Ubuntu"
@@ -67,31 +67,31 @@ exports[`Test in <Alerts /> should display the component correctly 1`] = `
             Windows
           </option>
         </select>
-      </div>
-      <form
-        className="input-group mb-3 w-25"
-      >
-        <input
-          aria-describedby="button-addon2"
-          className="form-control"
-          onChange={[Function]}
-          placeholder="Search"
-          type="text"
-          value=""
-        />
-        <button
-          className="btn btn-outline-light"
-          id="button-addon2"
-          onClick={[Function]}
-          onSubmit={[Function]}
-          type="submit"
+        <form
+          className="input-group mb-3 w-50"
         >
-          Search
-        </button>
-      </form>
+          <input
+            aria-describedby="button-addon2"
+            className="form-control"
+            onChange={[Function]}
+            placeholder="Search"
+            type="text"
+            value=""
+          />
+          <button
+            className="btn btn-primary-page"
+            id="button-addon2"
+            onClick={[Function]}
+            onSubmit={[Function]}
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
+      </div>
     </div>
     <table
-      className="table table-dark table-striped table-hover"
+      className="table table-light table-striped table-hover"
     >
       <thead>
         <tr>
@@ -129,7 +129,7 @@ exports[`Test in <Alerts /> should display the component correctly 1`] = `
         className="d-flex justify-content-end"
       >
         <button
-          className="btn btn-outline-light"
+          className="btn btn-primary-page"
           onClick={[Function]}
         >
           Next
